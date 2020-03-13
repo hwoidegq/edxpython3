@@ -1,0 +1,36 @@
+# [ ] Complete the function `search` so it looks for the first instance of `num` in `T`
+# The function should return 2 values:
+# 1) Boolean value indicating if num was found or not
+# 2) Index of the first instance of `num` in `T`
+
+def search(T, num):
+    """
+    Search T for num and return the index if found; otherwise return None.
+    
+    args:
+        T: Tuple to be searched
+        num: number to use for the search
+        
+    returns:
+        found: Boolean value to indicate if the num is contained in T or not
+        i: If num is found in T return index of the first instance of num in T; otherwise, return the value `None`
+    """
+    #TODO: Your code goes here
+    try:
+      return (True,T.index(num))
+    except:
+      return (False,None)
+
+T = (257, 462, 18, 369, 415, 994, 541, 752, 78, 895, 0, 576, 40, 552, 438, 605, 54, 296, 433, 986, 685, 651, 523, 855, 777, 437, 65, 360, 265, 858, 260, 819, 586, 358, 860, 250, 531, 7, 801, 259, 155, 376, 374, 828, 475, 62, 52, 184, 186, 283, 643, 86, 472, 267, 692, 750, 948, 683, 452, 770, 322, 492, 871, 360, 88, 883, 764, 288, 383, 411, 679, 90, 857, 802, 974, 403, 798, 990, 475, 260, 289, 438, 873, 779, 895, 939, 462, 469, 183, 520, 366, 267, 896, 732, 303, 754, 195, 949, 546, 180)
+
+x = int(input("Enter a number to search for in T: "))
+
+# unpacking returned tuple
+found, i = search(T, x)
+
+if found:
+    print("First instance found at index {:}".format(i))
+else:
+    print("{} was not found in T".format(x))
+    
+
