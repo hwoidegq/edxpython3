@@ -1,0 +1,28 @@
+# [ ] Write a program to:
+# 1) ask the user for a number between 1000 and 9999
+# 2) test if the number matches the first line of any file in `files_directory`
+# 3) if a match was found, print the file name; otherwise, print no match is found
+# 4) your code should handle exception appropriately (i.e. a blank file or a file containing a string in the first line)
+# 5) you should use `with` statement for opening/closing files
+# 6) make sure the to run the environment setup code before running your own program.
+
+# test cases:
+# 3932, should print out: Match found in 74.txt : 3932
+# 2177, should print out: Match found in 27.txt : 2177
+# 4932, should print out: No matching files found
+
+import os
+usresult='No matching files found'
+usnumb = input('please enter a number between 1000 and 9999')
+while usnumb < "1000" or usnumb > "9999":
+  usnumb = input('please enter a number between 1000 and 9999')
+for x in os.listdir(): 
+  if os.path.isfile(x):
+      with open(x, "r") as f:
+          
+            if f.readline() == usnumb:
+              usresult='Match found in '
+              usresult+=x
+              usresult+=' : '
+              usresult+=usnumb
+print(usresult)
