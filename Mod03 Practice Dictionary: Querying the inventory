@@ -1,0 +1,30 @@
+# [ ] Use the `inventory` dictionary in a program that asks the user for a UPC number then prints the item information
+data = [[847502, "APPLES 1LB", 1.99, 50], [847283, "OLIVE OIL", 10.99, 100], [839529, "TOMATOS 1LB", 1.29, 25], [483946, "MILK 1/2G", 3.45, 35], [493402, "FLOUR 5LB", 2.99, 40], [485034, "BELL PEPPERS 1LB", 1.35, 28], [828391, "WHITE TUNA", 1.69, 100], [449023, "CHEESE 1/2LB", 4.99, 15]]
+#inventory = {data[i][0]: [data[i][1:4]] for i in range(len(data))}
+
+inventory = {item[0]: [item[1:4]] for item in data}
+# Your program should print an appropriate message if the UPC is not in the inventory
+
+# test cases:
+
+# input 1: 847283
+# output:
+'''
+  UPC   | Description       |  Unit Price  |  Quantity 
+-------------------------------------------------------
+847283  | OLIVE OIL         |        10.99 |     100.00
+'''
+
+# input 2: 340344
+# output: No inventory found for 340344
+
+inventory = {847502: ['APPLES 1LB', 1.99, 50], 847283: ['OLIVE OIL', 10.99, 100], 839529: ['TOMATOS 1LB', 1.29, 25], 483946: ['MILK 1/2G', 3.45, 35], 493402: ['FLOUR 5LB', 2.99, 40], 485034: ['BELL PEPPERS 1LB', 1.35, 28], 828391: ['WHITE TUNA', 1.69, 100], 449023: ['CHEESE 1/2LB', 4.99, 15]}
+#TODO: Your code goes here
+upci=int(input("Provide UPC code"))
+#  UPC   | Description       |  Unit Price  |  Quantity 
+try:
+  print("{:^8}| {:<18}|{:^14}|{:^12}".format("UPC","Description","Unit Price","Quantity"))
+  print(55*'-')
+  print("{:^8}| {:<18}|{:>13} |{:>11.2f}".format(upci,inventory[upci][0],inventory[upci][1],inventory[upci][2]))
+except:
+  print('No inventory found for',upci)
